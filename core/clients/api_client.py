@@ -5,6 +5,7 @@ from core.settings.environments import Environment
 
 load_dotenv()
 
+
 # создаем класс APIClient — обёртку для работы с внешними сервисами через API
 class APIClient:
     def __init__(self):
