@@ -1,0 +1,54 @@
+import requests
+import os # встроенный модуль для работы с файлами
+from dotenv import load_dotenv # устанавливаем библиотеку python-dotenv. Функция load_dotenv проводит анализ файла .env, а затем загружает все найденные переменные в качестве переменных окружения""""
+from core.settings.environments import Environment
+
+load_dotenv()
+
+
+# создаем класс APIClient — обёртку для работы с внешними сервисами через API
+class APIClient:
+    def __init__(self):
+        # 1. Получаем значение переменной окружения ENVIROMENT. Из Current File - Edit Configurations.. - Edit configurations templates - Python Tests - Autodetect
+        environment_str = os.getenv('ENVIRONMENT')
+
+        # 2. Преобразуем строку в член перечисления Environment. Enviroment[environment_str] — пытается найти соответствующий член перечисления.
+        try:
+            environment = Environment[environment_str]
+        # Если значение не совпадает ни с Environment.TEST, ни с Environment.PROD — выбрасывается KeyError
+        except KeyError:
+            raise ValueError(f"Unsupported environment value: {environment_str}")
+
+        # 3. Устанавливаем базовый URL в зависимости от среды
+        self.base_url = self.get_base_url(environment)
+
+        # 4. Задаём стандартные заголовки по умолчанию для всех запросов (в данном случае — формат данных application/json).
+        self.headers = {
+        'Content-Type': 'application/json'
+        }
+
+    # Используем метод get_base_url для определения базового URL API в зависимости от окружения
+    # Первый аргумент self говорит, что этот код будет работать с конкретным объектом класса
+    # Метод примает параметр environment. Это перечисление (TEST или PROD).
+    # Возвращает строку (str) - базовый адрес сервера в зависимости от окружения
+    def get_base_url(self, environment: Environment) -> str:
+        if environment == Environment.TEST:
+            return os.getenv('TEST_BASE_URL')
+        elif environment == Environment.PROD:
+            return os.getenv('PROD_BASE_URL')
+        else:
+            raise ValueError(f"Unsupported environment: {environment}")
+
+    def get(self, endpoint, params=None, statusCode=200):
+        url = self.base_url + endpoint
+        response = requests.get(url, headers=self.headers, params=params)
+        if statusCode:
+            assert response.status_code == statusCode
+        return response.json() # Метод response.json() в Python (обычно используемый в библиотеке requests) преобразует полученный от сервера ответ в формате JSON (строку) в удобные для работы структуры данных Python — словари (dict) или списки (list). Он автоматически декодирует JSON-контент, позволяя сразу обращаться к данным
+
+    def post(self, endpoint, data=None, statusCode=200):
+        url = self.base_url + endpoint
+        response = requests.post(url, headers=self.headers, json=data)
+        if statusCode:
+            assert response.status_code == statusCode
+        return response.json()
