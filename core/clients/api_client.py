@@ -87,8 +87,6 @@ class APIClient:
     def get_booking_by_id(self, booking_id: int):
         with allure.step('Getting booking by ID'):
             response = self.session.get(f"{self.base_url}{Endpoints.BOOKING_ENDPOINT}/{booking_id}", timeout=Timeouts.TIMEOUT)
-            if response.status_code == 418:
-                raise Exception(f"Сервер недоступен (418) для бронирования {booking_id}")
             response.raise_for_status()
+            assert response.status_code == 200, f"Expected 200 but got {response.status_code}"
             return response.json()
-            # assert response.status_code == 200, f"Expected 200 but got {response.status_code}"
