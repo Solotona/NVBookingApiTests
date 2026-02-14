@@ -3,6 +3,8 @@ from http.client import responses
 import requests
 import os # встроенный модуль для работы с файлами
 from dotenv import load_dotenv # устанавливаем библиотеку python-dotenv. Функция load_dotenv проводит анализ файла .env, а затем загружает все найденные переменные в качестве переменных окружения""""
+from requests.auth import HTTPBasicAuth
+
 from core.settings.environments import Environment
 from core.clients.endpoints import Endpoints
 from core.settings.config import Users, Timeouts
@@ -84,9 +86,56 @@ class APIClient:
             with allure.step('Updating header with authorization'):
                 self.session.headers.update({"Authorization": f"Bearer {token}"}) # Добавляет заголовок авторизации в сессию, чтобы все последующие запросы автоматически включали токен
 
-    def get_booking_by_id(self, booking_id: int):
-        with allure.step('Getting booking by ID'):
-            response = self.session.get(f"{self.base_url}{Endpoints.BOOKING_ENDPOINT}/{booking_id}", timeout=Timeouts.TIMEOUT)
+    def get_booking_by_id(self, booking_id):
+        with allure.step('Getting object with bookings by ID'):
+            url = f"{self.base_url}{Endpoints.BOOKING_ENDPOINT}/{booking_id}"
+            response = self.session.get(url, timeout=Timeouts.TIMEOUT)
             response.raise_for_status()
+        with allure.step('Checking status code'):
             assert response.status_code == 200, f"Expected 200 but got {response.status_code}"
+        return response.json()
+
+    def delete_booking(self, booking_id):
+        with allure.step('Deleting booking'):
+            url = f"{self.base_url}{Endpoints.BOOKING_ENDPOINT}/{booking_id}"
+            response = self.session.delete(url, auth=HTTPBasicAuth(Users.USERNAME, Users.PASSWORD))
+            response.raise_for_status()
+        with allure.step('Checking status code'):
+            assert response.status_code == 201, f"Expected 200 but got {response.status_code}"
+        return response.status_code == 201
+
+    def create_booking(self, booking_data):
+        with allure.step('Creating booking'):
+            url = url = f"{self.base_url}{Endpoints.BOOKING_ENDPOINT}"
+            response = self.session.post(url, json=booking_data)
+            response.raise_for_status()
+        with allure.step('Checking status code'):
+            assert response.status_code == 200, f"Expected 200 but got {response.status_code}"
+        return response.json()
+
+    def get_booking_ids(self, params=None):
+        with allure.step('Getting object with bookings'):
+            url = url = f"{self.base_url}{Endpoints.BOOKING_ENDPOINT}"
+            response = self.session.get(url, params=params)
+            response.raise_for_status()
+        with allure.step('Checking status code'):
+            assert response.status_code == 200, f"Expected 200 but got {response.status_code}"
+        return response.json()
+
+    def update_booking(self, booking_id, updated_booking_data):
+        with allure.step('Updating booking'):
+            url = f"{self.base_url}{Endpoints.BOOKING_ENDPOINT}/{booking_id}"
+            response = self.session.put(url, auth=HTTPBasicAuth(Users.USERNAME, Users.PASSWORD), json=updated_booking_data, timeout=Timeouts.TIMEOUT)
+            response.raise_for_status()
+            with allure.step('Checking status code'):
+                assert response.status_code == 200, f"Expected 200 but got {response.status_code}"
+            return response.json()
+
+    def partial_update_booking(self, booking_id, partial_updated_booking_data):
+        with allure.step('Partial updating booking'):
+            url = f"{self.base_url}{Endpoints.BOOKING_ENDPOINT}/{booking_id}"
+            response = self.session.patch(url, auth=HTTPBasicAuth(Users.USERNAME, Users.PASSWORD), json=partial_updated_booking_data, timeout=Timeouts.TIMEOUT)
+            response.raise_for_status()
+            with allure.step('Checking status code'):
+                assert response.status_code == 200, f"Expected 200 but got {response.status_code}"
             return response.json()
