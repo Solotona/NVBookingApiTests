@@ -77,7 +77,10 @@ class APIClient:
     def auth(self):
         with allure.step('Getting authenticate'):
             url = f"{self.base_url}{Endpoints.AUTH_ENDPOINT}" # Формирует полный URL для запроса, объединяя базовый адрес (self.base_url) и путь к эндпоинту аутентификации (Endpoints.AUTH_ENDPOINT)
-            payload = {"username": Users.USERNAME, "password": Users.PASSWORD} # Создаёт тело запроса (payload) с учётными данными из класса Users
+            payload = {
+                "username": Users.USERNAME.value, # .value извлекает строку
+                "password": Users.PASSWORD.value
+            } # Создаёт тело запроса (payload) с учётными данными из класса Users
             response = self.session.post(url, json = payload, timeout = Timeouts.TIMEOUT) # Отправляет POST-запрос через сессию (self.session) с JSON-данными и заданным таймаутом
             response.raise_for_status()  # Функция response.raise_for_status() в библиотеке requests нужна для автоматической проверки успешности HTTP-запроса. Если сервер вернул код ошибки (4xx или 5xx, например, 404 или 500), функция вызывает исключение requests.exceptions.HTTPError. Это предотвращает дальнейшую обработку ошибочных данных
             with allure.step('Checking status code'):
@@ -106,7 +109,7 @@ class APIClient:
 
     def create_booking(self, booking_data):
         with allure.step('Creating booking'):
-            url = url = f"{self.base_url}{Endpoints.BOOKING_ENDPOINT}"
+            url = f"{self.base_url}{Endpoints.BOOKING_ENDPOINT}"
             response = self.session.post(url, json=booking_data)
             response.raise_for_status()
         with allure.step('Checking status code'):
