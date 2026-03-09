@@ -8,6 +8,7 @@ from core.models.booking import BookingResponse
 
 @allure.feature('Test creating booking')
 @allure.story('Positive: creating booking with random data')
+@allure.title('Create booking with random data')
 def test_create_booking_with_random_data(api_client, generate_random_booking_data):
     booking_data = generate_random_booking_data
     with allure.step("Send POST request to create booking"):
@@ -26,8 +27,9 @@ def test_create_booking_with_random_data(api_client, generate_random_booking_dat
     with allure.step('Verify schema validation'):
         jsonschema.validate(response, BOOKING_SCHEMA)
 
-
+@allure.feature('Test creating booking')
 @allure.story('Positive: creating booking with custom data')
+@allure.title('Create booking with custom data')
 def test_create_booking_with_custom_data(api_client):
     with allure.step("Send POST request to create booking with custom data"):
         booking_data = {
