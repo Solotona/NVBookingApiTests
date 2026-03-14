@@ -3,7 +3,6 @@ from typing import Optional
 from datetime import date
 
 
-
 class BookingDates(BaseModel):
     checkin: date
     checkout: date
