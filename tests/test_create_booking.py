@@ -117,7 +117,6 @@ def test_create_booking_without_required_field_last_name(api_client):
                 assert status_code in [400, 500], f"Unexpected status code: {status_code}"
 
 
-
 @allure.feature('Test creating booking')
 @allure.story('Negative: creating booking with checkout before checkin')
 def test_create_booking_with_checkout_before_checkin(api_client):
