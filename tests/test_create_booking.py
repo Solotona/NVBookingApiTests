@@ -106,10 +106,10 @@ def test_create_booking_without_required_field_last_name(api_client):
         },
         "additionalneeds": "Dinner"
     }
-    with allure.step("Send POST request to create booking without last name"):
+    with allure.step("Send POST request to create booking without required field 'last name'"):
         try:
             api_client.create_booking(booking_data)
-            pytest.fail("Test Failed: Server accepted booking without lastname (Status 200), but expected error.")
+            pytest.fail("Test Failed: Server accepted booking without lastname (Status 200), but expected error")
         except HTTPError as e:
             status_code = e.response.status_code
 
@@ -131,4 +131,11 @@ def test_create_booking_with_checkout_before_checkin(api_client):
         },
         "additionalneeds": "Dinner"
     }
-    pass
+
+    with allure.step('Send POST request with checkout before checkin'):
+        response = api_client.session.post(f"{api_client.base_url}/booking",json=booking_data)
+        status_code = response.status_code
+
+    with allure.step(f'Assert status code is 400. Got: {status_code}'):
+        assert status_code == 400, f"Expected 400, got {status_code}"
+
