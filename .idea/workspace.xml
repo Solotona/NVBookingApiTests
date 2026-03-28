@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a366c9cf-fd2f-4382-9b1c-ed41fa73cb2c" name="Changes" comment="" />
+    <list default="true" id="a366c9cf-fd2f-4382-9b1c-ed41fa73cb2c" name="Changes" comment="Добавила тест 'Positive: creating booking with custom data', добавила файл booking.py для валидации с помощью фреймворка pydantic">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_02_2026_17_16_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_02_2026_17_16__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_02_2026_17_20_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_02_2026_17_20__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_02_2026_17_21_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_02_2026_17_21__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/clients/api_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/clients/api_client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/models/booking.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/models/booking.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_booking.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_create_booking.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,23 +32,23 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Lesson_1" />
+        <entry key="$PROJECT_DIR$" value="Lesson_3" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Solotona"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Solotona&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Solotona/NVBookingApiTests.git",
-    "accountId": "398ebe0e-fd01-4e85-9a07-d4efe6337822"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Solotona/NVBookingApiTests.git&quot;,
+    &quot;accountId&quot;: &quot;398ebe0e-fd01-4e85-9a07-d4efe6337822&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -50,17 +62,171 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python tests.Python tests for test_booking.test_create_booking.executor": "Debug",
+    "Python tests.Python tests for test_health_check.test_ping.executor": "Run",
+    "Python tests.Python tests for test_health_check.test_ping_delayed_response.executor": "Run",
+    "Python tests.Python tests for test_health_check.test_ping_internal_server_error.executor": "Run",
+    "Python tests.Python tests for test_health_check.test_ping_server_unavailable.executor": "Run",
+    "Python tests.Python tests for test_health_check.test_ping_success_different_method.executor": "Run",
+    "Python tests.Python tests for test_health_check.test_ping_timeout.executor": "Run",
+    "Python tests.Python tests for test_health_check.test_ping_wrong_method.executor": "Run",
+    "Python tests.Python tests for tests.test_booking.test_create_booking.executor": "Run",
+    "Python tests.Python tests for tests.test_booking.test_create_booking_with_custom_data.executor": "Run",
+    "Python tests.Python tests for tests.test_booking.test_create_booking_with_random_data.executor": "Run",
+    "Python tests.Python tests for tests.test_create_booking.test_create_booking_with_checkout_before_checkin.executor": "Debug",
+    "Python tests.Python tests for tests.test_create_booking.test_create_booking_with_custom_data.executor": "Run",
+    "Python tests.Python tests for tests.test_create_booking.test_create_booking_with_random_data.executor": "Run",
+    "Python tests.Python tests for tests.test_create_booking.test_create_booking_without_checkin.executor": "Run",
+    "Python tests.Python tests for tests.test_create_booking.test_create_booking_without_last_name.executor": "Run",
+    "Python tests.Python tests for tests.test_create_booking.test_create_booking_without_optional_field_additionalneeds.executor": "Run",
+    "Python tests.Python tests for tests.test_create_booking.test_create_booking_without_optional_fields.executor": "Run",
     "Python.api_client.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/Jiokko/PycharmProjects/NVBookingApiTests"
+    "git-widget-placeholder": "Lesson__6",
+    "last_opened_file_path": "C:/Users/Jiokko/PycharmProjects/NVPetShopApiTests",
+    "settings.editor.selected.configurable": "Shelf.Project.Settings"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Jiokko\PycharmProjects\NVBookingApiTests" />
       <recent name="C:\Users\Jiokko\PycharmProjects\NVBookingApiTests\core" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python tests.Python tests for tests.test_create_booking.test_create_booking_without_optional_field_additionalneeds">
+    <configuration name="Python tests for test_booking.test_create_booking" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="NVBookingApiTests" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="ENVIRONMENT" value="TEST" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.13 (NVBookingApiTests)" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_booking.test_create_booking&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for tests.test_create_booking" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="NVBookingApiTests" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="ENVIRONMENT" value="TEST" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.13 (NVBookingApiTests)" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.test_create_booking&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for tests.test_create_booking.test_create_booking_with_checkout_before_checkin" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="NVBookingApiTests" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="ENVIRONMENT" value="TEST" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.13 (NVBookingApiTests)" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.test_create_booking.test_create_booking_with_checkout_before_checkin&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for tests.test_create_booking.test_create_booking_without_last_name" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="NVBookingApiTests" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="ENVIRONMENT" value="TEST" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.13 (NVBookingApiTests)" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.test_create_booking.test_create_booking_without_last_name&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for tests.test_create_booking.test_create_booking_without_optional_field_additionalneeds" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="NVBookingApiTests" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="ENVIRONMENT" value="TEST" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.13 (NVBookingApiTests)" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.test_create_booking.test_create_booking_without_optional_field_additionalneeds&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for tests.test_create_booking.test_create_booking_without_optional_fields" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="NVBookingApiTests" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="ENVIRONMENT" value="TEST" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.13 (NVBookingApiTests)" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.test_create_booking.test_create_booking_without_optional_fields&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for tests.test_create_booking.test_create_booking_without_required_field_last_name" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="NVBookingApiTests" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="ENVIRONMENT" value="TEST" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.13 (NVBookingApiTests)" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.test_create_booking.test_create_booking_without_required_field_last_name&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="tests" factoryName="Autodetect">
       <module name="NVBookingApiTests" />
       <option name="ENV_FILES" value="" />
@@ -80,6 +246,22 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python tests.Python tests for tests.test_create_booking.test_create_booking_with_checkout_before_checkin" />
+      <item itemvalue="Python tests.Python tests for tests.test_create_booking.test_create_booking_without_last_name" />
+      <item itemvalue="Python tests.Python tests for tests.test_create_booking.test_create_booking_without_optional_field_additionalneeds" />
+      <item itemvalue="Python tests.Python tests for tests.test_create_booking.test_create_booking_without_optional_fields" />
+      <item itemvalue="Python tests.Python tests for tests.test_create_booking.test_create_booking_without_required_field_last_name" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.Python tests for tests.test_create_booking.test_create_booking_without_optional_field_additionalneeds" />
+        <item itemvalue="Python tests.Python tests for tests.test_create_booking.test_create_booking_without_required_field_last_name" />
+        <item itemvalue="Python tests.Python tests for tests.test_create_booking.test_create_booking_with_checkout_before_checkin" />
+        <item itemvalue="Python tests.Python tests for tests.test_create_booking.test_create_booking_without_last_name" />
+        <item itemvalue="Python tests.Python tests for tests.test_create_booking.test_create_booking_without_optional_fields" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -121,11 +303,92 @@
       <option name="project" value="LOCAL" />
       <updated>1769954997028</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Добавила методы delete_booking, create_booking, get_booking_ids, update_booking, partial_update_booking">
+      <option name="closed" value="true" />
+      <created>1771081908436</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1771081908436</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Добавила методы delete_booking, create_booking, get_booking_ids, update_booking, partial_update_booking">
+      <option name="closed" value="true" />
+      <created>1771082238429</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1771082238429</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Добавила файл conftest.py с фикстурами">
+      <option name="closed" value="true" />
+      <created>1771688280728</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1771688280728</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Добавила тесты для Ping в test_health_check.py и тест для CreateBooking в test_booking.py">
+      <option name="closed" value="true" />
+      <created>1772300373493</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1772300373493</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Добавила в тест 'Creating a new booking' проверку данных, которые были отправлены и получены, убрала проверку статус кода при запросе на создание бронирования.">
+      <option name="closed" value="true" />
+      <created>1772979541456</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1772979541456</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Добавила тест 'Positive: creating booking with custom data', добавила файл booking.py для валидации с помощью фреймворка pydantic">
+      <option name="closed" value="true" />
+      <created>1773062802710</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1773062802710</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Добавила тест 'Positive: creating booking with custom data', добавила файл booking.py для валидации с помощью фреймворка pydantic">
+      <option name="closed" value="true" />
+      <created>1773062887946</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1773062887946</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Добавила тест 'Positive: creating booking with custom data', добавила файл booking.py для валидации с помощью фреймворка pydantic">
+      <option name="closed" value="true" />
+      <created>1773063179348</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1773063179348</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <MESSAGE value="Создала API-клиент для разных сред. В проект добавлены файлы: api_client.py, environments.py, .env." />
-    <option name="LAST_COMMIT_MESSAGE" value="Создала API-клиент для разных сред. В проект добавлены файлы: api_client.py, environments.py, .env." />
+    <MESSAGE value="Добавила методы delete_booking, create_booking, get_booking_ids, update_booking, partial_update_booking" />
+    <MESSAGE value="Добавила файл conftest.py с фикстурами" />
+    <MESSAGE value="Добавила тесты для Ping в test_health_check.py и тест для CreateBooking в test_booking.py" />
+    <MESSAGE value="Добавила в тест 'Creating a new booking' проверку данных, которые были отправлены и получены, убрала проверку статус кода при запросе на создание бронирования." />
+    <MESSAGE value="Добавила тест 'Positive: creating booking with custom data', добавила файл booking.py для валидации с помощью фреймворка pydantic" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавила тест 'Positive: creating booking with custom data', добавила файл booking.py для валидации с помощью фреймворка pydantic" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tests/test_create_booking.py</url>
+          <line>85</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

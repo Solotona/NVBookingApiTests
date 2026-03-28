@@ -32,11 +32,6 @@ class APIClient:
         # 4. Сздаём объект сессии из библиотеки requests, который используется для выполнения HTTP-запросов: сессия сохраняет соединения между запросами, сессия автоматически сохраняет и отправляет куки между запросами
         self.session = requests.Session()
 
-        # 4. Задаём стандартные заголовки по умолчанию для всех запросов (в данном случае — формат данных application/json).
-        self.session.headers = {
-        'Content-Type': 'application/json'
-        }
-
     # Используем метод get_base_url для определения базового URL API в зависимости от окружения
     # Первый аргумент self говорит, что этот код будет работать с конкретным объектом класса
     # Метод примает параметр environment. Это перечисление (TEST или PROD).
@@ -107,6 +102,7 @@ class APIClient:
             assert response.status_code == 201, f"Expected 200 but got {response.status_code}"
         return response.status_code == 201
 
+
     def create_booking(self, booking_data):
         with allure.step('Creating booking'):
             url = f"{self.base_url}{Endpoints.BOOKING_ENDPOINT}"
@@ -115,6 +111,7 @@ class APIClient:
         with allure.step('Checking status code'):
             assert response.status_code == 200, f"Expected 200 but got {response.status_code}"
         return response.json()
+
 
     def get_booking_ids(self, params=None):
         with allure.step('Getting object with bookings'):
